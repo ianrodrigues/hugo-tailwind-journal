@@ -7,8 +7,9 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="{{ .Site.Author.name }}">
+    <meta name="author" content="{{ .Site.Params.AuthorName }}">
     <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:image" content="{{ "images/" | absURL }}{{ .Site.Params.AuthorAvatarFilename }}">
 
     {{ if .IsHome -}}
     <title>{{ .Site.Title }}</title>
@@ -22,14 +23,14 @@
     <meta name="description" content="{{ .Description }}">
     {{- end }}
 
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | relURL }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon-16x16.png" | relURL }}">
+    <!-- <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | relURL }}"> -->
+    <!-- <link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon-16x16.png" | relURL }}"> -->
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Arvo:400,700">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css">
     <link rel="stylesheet" href="{{ "css/theme.css" | relURL }}">
 
-    <link href="{{ "index.xml" | relURL }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
+    <!-- <link href="{{ "index.xml" | relURL }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}"> -->
 
     {{ if .IsTranslated }}
     {{ range .Translations }}
@@ -43,7 +44,7 @@
         <header class="mb-6">
             <div class="mb-6 md:flex md:items-center">
                 {{ if .IsHome -}}
-                <img class="hidden md:block w-20 rounded-full mr-6" src="https://www.oowlish.com/wp-content/uploads/2018/07/ian.png" alt="{{ .Site.Author.name }}">
+                <img class="hidden md:block w-20 rounded-full mr-6" src="{{ "images/" | relURL }}{{ .Site.Params.AuthorAvatarFilename }}" alt="{{ .Site.Params.AuthorName }}">
                 <div>
                     <h1 class="text-4xl font-bold">{{ .Site.Title }}</h1>
                     <p>{{ .Site.Params.tagline }}</p>
