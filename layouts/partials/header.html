@@ -15,11 +15,13 @@
     <title>{{ .Site.Title }}</title>
     <meta property="og:title" content="{{ .Site.Title }}">
     <meta property="og:type" content="website">
+    <meta property="og:description" content="{{ .Site.Params.description }}">
     <meta name="description" content="{{ .Site.Params.description }}">
     {{- else -}}
     <title>{{ .Title }} - {{ .Site.Title }}</title>
     <meta property="og:title" content="{{ .Title }} - {{ .Site.Title }}">
     <meta property="og:type" content="article">
+    <meta property="og:description" content="{{ .Description }}">
     <meta name="description" content="{{ .Description }}">
     {{- end }}
 
