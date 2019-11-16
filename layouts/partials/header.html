@@ -51,9 +51,7 @@
                 {{- else -}}
                 <div>
                     <a class="text-lg mb-8 inline-block" href="{{ .Site.BaseURL | relLangURL }}">&larr; {{ i18n "back_home" }}</a>
-                    {{ if not in .Title "404" }}
                     <h1 class="text-4xl font-bold">{{ .Title }}</h1>
-                    {{ end }}
                     {{ if .IsPage }}
                     <time datetime="{{ .Date.Format "2006-01-02 15:04:05 MST" }}">{{ .Date.Format "02 Jan 2006" }}</time>
                     {{ end }}
