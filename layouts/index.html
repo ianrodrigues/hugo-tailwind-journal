@@ -17,7 +17,7 @@
         {{ end }}
     </section>
 
-    {% comment %} <article class="mb-12">
+    <!-- <article class="mb-12">
         <p>If you already have heard about <a href="https://en.wikipedia.org/wiki/Domain-driven_design">DDD (Domain-Driven Design)</a>, you probably also may have heard about Value Objects. It is one of the building blocks introduced by Eric Evans in <a href="https://www.amazon.com.br/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215">“the blue book”</a>.</p>
 
         <p>A value object is a type which wraps data and is distinguishable only by its properties. Unlike an <code>Entity</code>, it doesn’t have a unique identifier. Thus, <strong>two value objects with the same property values should be considered equal</strong>.</p>
@@ -273,17 +273,6 @@
             })();
         </script>
         <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </article> {% endcomment %}
+    </article> -->
 
-    <footer>
-      <p>
-        &copy; 2019. Ian Rodrigues, software engineer @ <a class="border-b border-gray-700" href="">oowlish technology</a>
-      </p>
-      
-      <p>
-        <a href="">GitHub</a> / <a href="">Twitter</a>
-      </p>
-    </footer>
-  </div>
-</body>
-</html>
+{{ partial "footer.html" . }}
