@@ -26,7 +26,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon-16x16.png" | relURL }}">
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Arvo:400,700">
-    <link rel="stylesheet" href="https://ianrodrigues.dev/css/highlight.css">
+    <link rel="stylesheet" href="{{ "css/highlight.css" | relURL }}">
     <link rel="stylesheet" href="{{ "css/theme.css" | relURL }}">
 
     <link href="{{ "index.xml" | relURL }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
@@ -36,6 +36,11 @@
     <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" title="{{ .Language.LanguageName }}">
     {{ end }}
     {{ end }}
+    
+    <script src="{{ "js/highlight.js" | relURL }}" defer></script>
+    <script defer>
+        hljs.initHighlightingOnLoad();
+    </script>
 </head>
 
 <body class="font-serif bg-gray-200 border-t-4 border-blue-500 antialiased">
