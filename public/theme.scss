@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply text-gray-800;
+}
+
+h1, h2, h3, h4, h5, h6, strong {
+    @apply text-gray-900;
+}
+
+article > p, ul, ol {
+    @apply text-lg tracking-wide;
+}
+
+article > p, ul, ol, pre:not(:last-child) {
+    @apply mb-6;
+}
+
+article > ol, ul {
+    @apply list-disc ml-8;
+}
+
+article > li:not(:last-of-type) {
+    @apply mb-2;
+}
+
+article p > code {
+    @apply p-1/2 bg-gray-400;
+}
+
+article > h2 {
+    @apply text-2xl my-8 font-bold text-black;
+}
+
+a {
+    @apply border-b border-black text-black;
+}
