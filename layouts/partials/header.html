@@ -55,20 +55,15 @@
                     <time datetime="{{ .Date.Format "2006-01-02 15:04:05 MST" }}">{{ .Date.Format "02 Jan 2006" }}</time>
                     
                     <!-- Tags-->
+                    {{ with .Params.tags }}
                     <ol class="mt-4">
+                        {{ range . }}
                         <li class="inline-block">
-                        <a class="border-none text-gray-800 text-xs bg-gray-400 hover:bg-gray-600 hover:text-white rounded-sm px-3 py-1" href="">php</a>
+                            <a class="border-none text-gray-800 text-xs bg-gray-400 hover:bg-gray-600 hover:text-white rounded-sm px-3 py-1" href="{{ "tags" | absURL }}{{ . | urlize }}">{{ . }}</a>
                         </li>
-                        <li class="inline-block">
-                        <a class="border-none text-gray-800 text-xs bg-gray-400 hover:bg-gray-600 hover:text-white rounded-sm px-3 py-1" href="">ddd</a>
-                        </li>
-                        <li class="inline-block">
-                        <a class="border-none text-gray-800 text-xs bg-gray-400 hover:bg-gray-600 hover:text-white rounded-sm px-3 py-1" href="">value objects</a>
-                        </li>
-                        <li class="inline-block">
-                        <a class="border-none text-gray-800 text-xs bg-gray-400 hover:bg-gray-600 hover:text-white rounded-sm px-3 py-1" href="">doctrine</a>
-                        </li>
+                        {{ end }}
                     </ol>
+                    {{ end }}
                 </div>
                 {{- end }}
             </div>
