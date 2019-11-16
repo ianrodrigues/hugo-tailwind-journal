@@ -1,10 +1,10 @@
         <footer>
             <p>
-                &copy; 2019. Ian Rodrigues, software engineer @ <a class="border-b border-gray-700" href="">oowlish technology</a>
+                &copy; {{ now.Format "2006"}}. Ian Rodrigues, software engineer @ <a class="border-b border-gray-700" href="">oowlish technology</a>
             </p>
 
             <p>
-                <a href="">GitHub</a> / <a href="">Twitter</a>
+                <a href="https://github.com/ianrodrigues">GitHub</a> / <a href="https://twitter.com/ianrdrgs">Twitter</a>
             </p>
         </footer>
     </div>
@@ -12,5 +12,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/php.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
+
+    {{ template "_internal/google_analytics.html" . }}
 </body>
 </html>
