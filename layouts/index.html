@@ -1,23 +1,23 @@
 {{ partial "header.html" . }}
 
-        <section class="mb-24">
-            <div>
-                <h2 class="text-3xl font-bold mb-2">2019</h2>
+    <section class="mb-24">
+        {{ range site.RegularPages.GroupByDate "2006" -}}
+        <div>
+            <h2 class="text-3xl font-bold mb-2">{{ .Key }}</h2>
 
-                <ol>
-                    <li class="mb-6 md:flex md:flex-row">
-                        <time class=" block md:flex-l-24" datetime="2019-11-03 13:30:00 -0300">Nov 09</time>
-                        <a class="text-lg md:ml-12" href="/2019/11/writing-value-objects-in-php/">Writing value objects in PHP</a>
-                    </li>
-                    <li class="mb-6 md:flex md:flex-row">
-                        <time class=" block md:flex-l-24" datetime="2019-11-03 13:30:00 -0300">Aug 23</time>
-                        <a class="text-lg md:ml-12" href="/2019/11/writing-value-objects-in-php/">Hello, World!</a>
-                    </li>
-                </ol>
-            </div>
-        </section>
+            <ol>
+                {{ range .Pages -}}
+                <li class="mb-6 md:flex md:flex-row">
+                    <time class=" block md:flex-l-24" datetime="{{ .Date.Format "2006-01-02 15:04:05 MST" }}">{{ .Date.Format "Jan 02"}}</time>
+                    <a class="text-lg md:ml-12" href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </li>
+                {{- end }}
+            </ol>
+        </div>
+        {{ end }}
+    </section>
 
-    <article class="mb-12">
+    {% comment %} <article class="mb-12">
         <p>If you already have heard about <a href="https://en.wikipedia.org/wiki/Domain-driven_design">DDD (Domain-Driven Design)</a>, you probably also may have heard about Value Objects. It is one of the building blocks introduced by Eric Evans in <a href="https://www.amazon.com.br/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215">“the blue book”</a>.</p>
 
         <p>A value object is a type which wraps data and is distinguishable only by its properties. Unlike an <code>Entity</code>, it doesn’t have a unique identifier. Thus, <strong>two value objects with the same property values should be considered equal</strong>.</p>
@@ -273,7 +273,7 @@
             })();
         </script>
         <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </article>
+    </article> {% endcomment %}
 
     <footer>
       <p>
