@@ -40,8 +40,8 @@
 
 <body class="font-serif bg-gray-200 border-t-4 border-blue-500 antialiased">
     <div class="w-full p-6 md:w-2/3 md:px-0 md:mx-auto xl:w-2/5">
-        <header class="mb-12">
-            <div class="mb-8 md:flex md:items-center">
+        <header class="mb-6">
+            <div class="mb-6 md:flex md:items-center">
                 {{ if .IsHome -}}
                 <img class="hidden md:block w-20 rounded-full mr-6" src="https://www.oowlish.com/wp-content/uploads/2018/07/ian.png" alt="{{ .Site.Author.name }}">
                 <div>
@@ -51,7 +51,9 @@
                 {{- else -}}
                 <div>
                     <a class="text-lg mb-8 inline-block" href="{{ .Site.BaseURL | relLangURL }}">&larr; {{ i18n "back_home" }}</a>
+                    {{ if not .IsNode }}
                     <h1 class="text-4xl font-bold">{{ .Title }}</h1>
+                    {{ end }}
                     {{ if .IsPage }}
                     <time datetime="{{ .Date.Format "2006-01-02 15:04:05 MST" }}">{{ .Date.Format "02 Jan 2006" }}</time>
                     {{ end }}
