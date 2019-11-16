@@ -3,54 +3,81 @@
 
 <head>
     <meta charset="utf-8">
+    {{ hugo.Generator }}
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="{{ .Site.Author.name }}">
+    <meta property="og:url" content="{{ .Permalink }}">
 
-    <title>Minimalist Journal - Theme for Hugo</title>
+    {{ if .IsHome -}}
+    <title>{{ .Site.Title }}</title>
+    <meta property="og:title" content="{{ .Site.Title }}">
+    <meta property="og:type" content="website">
+    <meta name="description" content="{{ .Site.Params.description }}">
+    {{- else -}}
+    <title>{{ .Title }} - {{ .Site.Title }}</title>
+    <meta property="og:title" content="{{ .Title }} - {{ .Site.Title }}">
+    <meta property="og:type" content="article">
+    <meta name="description" content="{{ .Description }}">
+    {{- end }}
 
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | relURL }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon-16x16.png" | relURL }}">
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Arvo:400,700">
     <link rel="stylesheet" href="https://ianrodrigues.dev/css/highlight.css">
     <link rel="stylesheet" href="{{ "css/theme.css" | relURL }}">
+
+    <link href="{{ "index.xml" | relURL }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
+
+    {{ if .IsTranslated }}
+    {{ range .Translations }}
+    <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" title="{{ .Language.LanguageName }}">
+    {{ end }}
+    {{ end }}
 </head>
 
 <body class="font-serif bg-gray-200 border-t-4 border-blue-500 antialiased">
     <div class="w-full p-6 md:w-2/3 md:px-0 md:mx-auto xl:w-2/5">
         <header class="mb-12">
             <div class="mb-8 md:flex md:items-center">
-                <img class="hidden md:block w-20 rounded-full mr-6" src="https://www.oowlish.com/wp-content/uploads/2018/07/ian.png" alt="Ian Rodrigues">
+                {{ if .IsHome -}}
+                <img class="hidden md:block w-20 rounded-full mr-6" src="https://www.oowlish.com/wp-content/uploads/2018/07/ian.png" alt="{{ .Site.Author.name }}">
                 <div>
-                <h1 class="text-4xl font-bold">Ian Rodrigues</h1>
-                <p>yet another blog about dev, sometimes ops</p>
+                    <h1 class="text-4xl font-bold">{{ .Site.Title }}</h1>
+                    <p>{{ .Site.Params.tagline }}</p>
                 </div>
-                
-                <!-- <div>
-                <a class="text-lg mb-8 inline-block" href="">&larr; Back Home</a>
-                <h1 class="text-4xl font-bold">Writing value objects in PHP</h1>
-                <time datetime="2019-11-03 13:30:00 -0300">03 Nov 2019</time>
-                
-                <ol class="mt-4">
-                    <li class="inline-block">
-                    <a class="border-none text-gray-800 text-xs bg-gray-400 hover:bg-gray-600 hover:text-white rounded-sm px-3 py-1" href="">php</a>
-                    </li>
-                    <li class="inline-block">
-                    <a class="border-none text-gray-800 text-xs bg-gray-400 hover:bg-gray-600 hover:text-white rounded-sm px-3 py-1" href="">ddd</a>
-                    </li>
-                    <li class="inline-block">
-                    <a class="border-none text-gray-800 text-xs bg-gray-400 hover:bg-gray-600 hover:text-white rounded-sm px-3 py-1" href="">value objects</a>
-                    </li>
-                    <li class="inline-block">
-                    <a class="border-none text-gray-800 text-xs bg-gray-400 hover:bg-gray-600 hover:text-white rounded-sm px-3 py-1" href="">doctrine</a>
-                    </li>
-                </ol>
-                </div> -->
+                {{- else -}}
+                <div>
+                    <a class="text-lg mb-8 inline-block" href="{{ .Site.BaseURL | relLangURL }}">&larr; {{ i18n "index" }}</a>
+                    <h1 class="text-4xl font-bold">{{ .Title }}</h1>
+                    <time datetime="{{ .Date.Format "2006-01-02 15:04:05 MST" }}">{{ .Date.Format "02 Jan 2006" }}</time>
+                    
+                    <ol class="mt-4">
+                        <li class="inline-block">
+                        <a class="border-none text-gray-800 text-xs bg-gray-400 hover:bg-gray-600 hover:text-white rounded-sm px-3 py-1" href="">php</a>
+                        </li>
+                        <li class="inline-block">
+                        <a class="border-none text-gray-800 text-xs bg-gray-400 hover:bg-gray-600 hover:text-white rounded-sm px-3 py-1" href="">ddd</a>
+                        </li>
+                        <li class="inline-block">
+                        <a class="border-none text-gray-800 text-xs bg-gray-400 hover:bg-gray-600 hover:text-white rounded-sm px-3 py-1" href="">value objects</a>
+                        </li>
+                        <li class="inline-block">
+                        <a class="border-none text-gray-800 text-xs bg-gray-400 hover:bg-gray-600 hover:text-white rounded-sm px-3 py-1" href="">doctrine</a>
+                        </li>
+                    </ol>
+                </div>
+                {{- end }}
             </div>
 
             <!-- Languages -->
+            {{ if .IsTranslated }}
             <nav>
-                <a href="https://ianrodrigues.dev/pt-br/">🇺🇸 English</a> /
-                <a href="https://ianrodrigues.dev/pt-br/">🇩🇪 Deustch</a> /
-                <a href="https://ianrodrigues.dev/pt-br/">🇧🇷 Português</a>
+                {{ range .Translations }}
+                <a href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+                {{ end}}
             </nav>
+            {{ end }}
         </header>
