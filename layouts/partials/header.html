@@ -51,7 +51,7 @@
                 {{- else -}}
                 <div>
                     <a class="text-lg mb-8 inline-block" href="{{ .Site.BaseURL | relLangURL }}">&larr; {{ i18n "back_home" }}</a>
-                    {{ if not .IsNode }}
+                    {{ if not in .Title "404" }}
                     <h1 class="text-4xl font-bold">{{ .Title }}</h1>
                     {{ end }}
                     {{ if .IsPage }}
