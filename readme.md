@@ -1,53 +1,62 @@
-# Tailwind CSS Playground
+# TailwindCSS Journal
 
-A simple starter project for playing around with Tailwind in a proper PostCSS environment.
+_TailwindCSS Journal_ is a minimalist theme for [Hugo](https://gohugo.io) using [TailwindCSS](https://tailwindcss.com).
 
-To get started:
+Based on [Journal](https://dashdashzako.github.io/hugo-journal-demo/), it also focuses on improving reading experience with no fancy effect.
 
-1. Clone the repository:
+It uses [Chroma](https://gohugo.io/content-management/syntax-highlighting/) for the syntaxic coloration of code snippets.
 
-    ```bash
-    git clone https://github.com/tailwindcss/playground.git tailwindcss-playground
+Demo is available [here](https://ianrodrigues.github.io/hugo-tailwind-demo/).
 
-    cd tailwindcss-playground
-    ```
+## Installation
 
-2. Install the dependencies:
+Please refer to the [Hugo documentation](https://gohugo.io/themes/installing/).
 
-    ```bash
-    # Using npm
-    npm install
+## Configuration
 
-    # Using Yarn
-    yarn
-    ```
+A few parameters should be adjusted in the site config:
 
-3. Start the development server:
+```toml
+baseURL = "https://username.github.io/"
+disqusShortname = "username"
+googleAnalytics = "UA-XXXXXXXXX-X"
+title = "Tailwind Journal"
+theme = "hugo-tailwind-journal"
+pygmentsCodeFences = true
+pygmentsUseClasses = true
 
-    ```bash
-    # Using npm
-    npm run serve
+[taxonomies]
+    tag = "tags"
 
-    # Using Yarn
-    yarn run serve
-    ```
+[permalinks]
+    posts = "/posts/:year/:month/:title/"
 
-    Now you should be able to see the project running at localhost:8080.
+[params]
+    author = "John Doe"
+    avatar = "images/avatar.jpg"
+    description = "A minimalist journal template for Hugo using TailwindCSS."
+    tagline = "A minimalist journal template for Hugo using TailwindCSS."
 
-4. Open `public/index.html` in your editor and start experimenting!
+[languages]
+    [languages.en]
+        contentDir = "content/english"
+        languageCode = "en-us"
+        languageName = "🇺🇸 English"
+        weight = 1
 
-## Building for production
+    [languages.pt-br]
+        contentDir = "content/portuguese"
+        description = "Um template minimalista para Hugo usando TailwindCSS."
+        languageCode = "pt-br"
+        languageName = "🇧🇷 Português"
+        tagline = "Um template minimalista para Hugo usando TailwindCSS."
+        weight = 2
 
-Even though this isn't necessarily a starter kit for a proper project, we've included an example of setting up both [Purgecss](https://www.purgecss.com/) and [cssnano](https://cssnano.co/) to optimize your CSS for production.
-
-To build an optimized version of your CSS, simply run:
-
-```bash
-# Using npm
-npm run production
-
-# Using Yarn
-yarn run production
+    [languages.de]
+        contentDir = "content/german"
+        description = "Eine minimalistische Journalvorlage für Hugo mit TailwindCSS."
+        languageCode = "pt-br"
+        languageName = "🇩🇪 Deutsch"
+        tagline = "Eine minimalistische Journalvorlage für Hugo mit TailwindCSS."
+        weight = 3
 ```
-
-After that's done, check out `./public/build/tailwind.css` to see the optimized output.
