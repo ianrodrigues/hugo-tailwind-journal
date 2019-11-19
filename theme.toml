@@ -1,0 +1,12 @@
+name = "Tailwind Journal"
+license = "MIT"
+licenselink = "https://github.com/ianrodrigues/hugo-tailwind-journal/blob/master/readme.md"
+description = "A minimalist journal template for Hugo using TailwindCSS."
+homepage = "https://github.com/ianrodrigues/hugo-tailwind-journal"
+tags = ["minimalist", "reading", "blog", "tailwindcss"]
+features = ["blog"]
+min_version = "0.54.0"
+
+[author]
+    name = "Ian Rodrigues"
+    homepage = "https://ianrodrigues.dev"

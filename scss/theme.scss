@@ -14,7 +14,7 @@ article > p, ul, ol {
     @apply text-lg tracking-wide;
 }
 
-article > p, ul, ol, pre:not(:last-child) {
+article > div, p, ul, ol, pre:not(:last-child) {
     @apply mb-6;
 }
 
@@ -36,4 +36,16 @@ article > h2 {
 
 a {
     @apply border-b border-black text-black;
+}
+
+/* purgecss ignore */
+pre.chroma {
+    @apply p-4 overflow-x-auto font-mono text-lg;
+}
+
+@screen md {
+    /* purgecss ignore */
+    div.highlight {
+        @apply -mx-12;
+    }
 }

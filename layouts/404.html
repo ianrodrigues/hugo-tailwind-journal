@@ -1,0 +1,12 @@
+{{ define "heading"}}
+<div>
+    <a class="text-lg mb-8 inline-block" href="{{ .Site.BaseURL | relLangURL }}">&larr; {{ i18n "back_home" }}</a>
+    <h1 class="text-4xl font-bold">{{ i18n "not_found_page_title" }}</h1>
+</div>
+{{ end }}
+
+{{ define "content" }}
+<section class="mb-24">
+    <img src="{{ "images/404-background.png" | relURL }}" alt="Page Not Found">
+</section>
+{{ end }}

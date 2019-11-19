@@ -1,0 +1,7 @@
+{{ define "content" }}
+<section class="mb-24">
+    {{ range site.RegularPages.GroupByDate "2006" -}}
+        {{ partial "posts.html" . }}
+    {{ end }}
+</section>
+{{ end }}

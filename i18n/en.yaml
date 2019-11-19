@@ -1,0 +1,5 @@
+- id: back_home
+  translation: "Back Home"
+
+- id: not_found_page_title
+  translation: "Whoops! The page you're looking for doesn't exist :("
