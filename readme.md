@@ -55,7 +55,7 @@ pygmentsUseClasses = true
     [languages.de]
         contentDir = "content/german"
         description = "Eine minimalistische Journalvorlage für Hugo mit TailwindCSS."
-        languageCode = "pt-br"
+        languageCode = "de"
         languageName = "🇩🇪 Deutsch"
         tagline = "Eine minimalistische Journalvorlage für Hugo mit TailwindCSS."
         weight = 3
