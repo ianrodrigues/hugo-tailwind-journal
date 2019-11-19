@@ -6,7 +6,7 @@ Based on [Journal](https://dashdashzako.github.io/hugo-journal-demo/), it also f
 
 It uses [Chroma](https://gohugo.io/content-management/syntax-highlighting/) for the syntaxic coloration of code snippets.
 
-Demo is available [here](https://ianrodrigues.github.io/hugo-tailwind-demo/).
+Demo is available [here](https://ianrodrigues.github.io/hugo-tailwind-journal-demo/).
 
 ## Installation
 
