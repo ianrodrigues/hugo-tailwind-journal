@@ -1,0 +1,12 @@
+<div>
+    <h2 class="text-3xl font-bold mb-2">{{ .Key }}</h2>
+
+    <ol>
+        {{ range .Pages -}}
+        <li class="mb-6 md:flex md:flex-row">
+            <time class=" block md:flex-l-24" datetime="{{ .Date.Format "2006-01-02 15:04:05 MST" }}">{{ .Date.Format "Jan 02"}}</time>
+            <a class="text-lg md:ml-12" href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </li>
+        {{- end }}
+    </ol>
+</div>
