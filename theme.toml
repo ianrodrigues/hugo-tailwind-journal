@@ -1,6 +1,6 @@
 name = "Tailwind Journal"
 license = "MIT"
-licenselink = "https://github.com/ianrodrigues/hugo-tailwind-journal/blob/master/readme.md"
+licenselink = "https://github.com/ianrodrigues/hugo-tailwind-journal/blob/master/license.md"
 description = "A minimalist journal template for Hugo using TailwindCSS."
 homepage = "https://github.com/ianrodrigues/hugo-tailwind-journal"
 tags = ["minimalist", "reading", "blog", "tailwindcss"]
